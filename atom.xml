@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://bayeszou.com/"/>
-  <updated>2017-03-23T06:27:21.000Z</updated>
+  <updated>2017-03-23T12:56:01.000Z</updated>
   <id>http://bayeszou.com/</id>
   
   <author>
@@ -20,11 +20,10 @@
     <link href="http://bayeszou.com/2017/03/23/%E5%88%A9%E7%94%A8%20CSS%20%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/"/>
     <id>http://bayeszou.com/2017/03/23/利用 CSS 居中对齐/</id>
     <published>2017-03-23T02:54:00.000Z</published>
-    <updated>2017-03-23T06:27:21.000Z</updated>
+    <updated>2017-03-23T12:56:01.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>CSS 居中的方法实在是太多啦，每次光靠 Google 去搜都要费好大力气。看了 <a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="external">Centering in CSS: A Complete Guide</a> 才清楚了许多，对自己的认识做个总结。</p>
 <a id="more"></a>
-<p>[TOC]</p>
 <h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><h3 id="inline-和-inline-元素"><a href="#inline-和-inline-元素" class="headerlink" title="inline 和 inline-* 元素"></a>inline 和 inline-* 元素</h3><p>在一个 block-level 中的 <code>inline</code>, <code>inline-block</code>, <code>inline-table</code>, <code>inline-flex</code> 元素，居中只需要一行：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-children</span> &#123;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="block-level-元素"><a href="#block-level-元素" class="headerlink" title="block-level 元素"></a>block-level 元素</h3><p>将左右的 <code>margin</code> 设置升 <code>auto</code> 就可以让一个 block-level 元素居中，常常见到这种写法：</p>
@@ -69,7 +68,7 @@
     <link href="http://bayeszou.com/2017/03/14/%E5%AF%B9%20%3Cmeta%3E%20%E7%9A%84%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/"/>
     <id>http://bayeszou.com/2017/03/14/对 &lt;meta&gt; 的初步认识/</id>
     <published>2017-03-14T01:57:00.000Z</published>
-    <updated>2017-03-23T07:12:13.000Z</updated>
+    <updated>2017-03-23T12:56:12.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在 <a href="https://www.coursera.org" target="_blank" rel="external">Coursera</a> 学习 <a href="https://www.coursera.org/learn/html-css-javascript-for-web-developers/home" target="_blank" rel="external">HTML CSS JavaScript for Web Developers</a> 的时候，有讲如果要让网页在移动设备上更好的显示，需要在 HTML 中的 <code>&lt;head&gt;</code> 里加上这一行代码：</p>
 <a id="more"></a>
