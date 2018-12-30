@@ -1,0 +1,48 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>《东方梦符祭》有感 · Bayes' Blog</title><meta name="description" content="《东方梦符祭》有感 - Bayes Zou"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,700"><link rel="search" type="application/opensearchdescription+xml" href="http://bayeszou.com/atom.xml" title="Bayes' Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/bayestheorem" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/bayeszou" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">《东方梦符祭》有感</h1><div class="post-info">Dec 30, 2018</div><div class="post-content"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>Gotta knock a little harder<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="《Gotta knock a little harder》-山根麻以/菅野洋子 (如果你没听过，强烈推荐你听一遍；该曲来自于动画《Cowboy Bebop》，如果你没看过，也强烈推荐你看一遍）
+">[1]</span></a></sup></p>
+</blockquote>
+<a id="more"></a>
+<p>地球倒数第二日下午，家乡初雪，约见几个好友，打上几盘游戏。磕磕碰碰（literally）奔波至网吧，可谓风雪无阻。</p>
+<p>找个合适的项目不是件容易的事。成年之后的「游戏菜单」非常乏味，问题通常不来自于游戏，主要是人。「东方梦符祭<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[《东方梦符祭》](https://zh.wikipedia.org/wiki/%E4%B8%9C%E6%96%B9%E6%A2%A6%E7%AC%A6%E7%A5%AD)- dota2 中的一款自定义地图
+">[2]</span></a></sup>」.「塔防」，无论是名字还是类型，都属于一眼 pass 那种。不过接触一款游戏，往往也因为人。</p>
+<p>简短的真人新手教学：</p>
+<ol>
+<li>游戏里的「式神」就是「塔」，具备「卡片」一样的性质，是游戏里主要的攻击手段，同时最多放置 12 个式神；</li>
+<li>「式神」具备「卡片」一样的性质，大致有以下属性：<ol>
+<li>品质：N, R, SR, SSR;</li>
+<li>等级：1，2,…, 10;</li>
+<li>星级：一星级，二星级，三星级，四星级，五星级</li>
+</ol>
+</li>
+<li>「式神」的<strong>品质</strong>和其价格、稀有度相关（抽卡）；<strong>等级</strong>则是消灭单位获取，10 级封顶；<strong>星级</strong>表示强度，二星式神需要融合两张一星式神获取，三星式神需要融合三张二星式神获取，以此类推。</li>
+</ol>
+<p>好的游戏在开始段时间后，其体验和教材的课后习题一样──在你以为自己深谙规则的时候…… :D</p>
+<p>滚雪球的劣势伴随突如其来的崩盘，迅速冲垮「防线」。幸运的是好友们在</p>
+<blockquote>
+<p>大量的低星式神前期中期可能有用，但是撑不过后期（第 50 波）的；主力至少应该有 1~2 个五星式神，剩下的仓位用于运营。</p>
+<p>合理运营的话，第一个五星式神一般在 30 波的时候，构建好。</p>
+</blockquote>
+<p>所以这是个需要管理「库存」的游戏（存储用于生星的式神），加上个人体验，「运行」有部份程度的重复操作──类似于 2048。</p>
+<h2 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h2><blockquote>
+<p>造出五星级式神的成本是多少？</p>
+</blockquote>
+<p>根据规则，五星式神需要 5 张四星式神融合，而一张四星式神…</p>
+<p>可能因为最近开始看 SICP<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[*Structure and Interpretation of Computer Programs*](https://mitpress.mit.edu/sites/default/files/sicp/index.html)">[3]</span></a></sup> 的缘故，本能想到了递归：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params">starNum</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(starNum &gt; <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> count(starNum - <span class="number">1</span>) * starNum</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>求 n 星需要多少张一星式神合成的函数，简单，易于理解，递推回归一目了然，但是有个问题：$O(n)$ 的空间复杂度，这种递归思想的写法有点浪费空间。</p>
+<blockquote>
+<p>有没有迭代的写法？</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params">starNum, cardNum</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(starNum===<span class="number">0</span>) <span class="keyword">return</span> cardNum</span><br><span class="line">  <span class="keyword">return</span> count(starNum<span class="number">-1</span>, starNum*cardNum)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>$O(n) \Rightarrow O(1)$，和递归次数呈正比的空间复杂度，变成常数级。试着跑下结果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>].map(<span class="function"><span class="params">starNum</span>=&gt;</span>count(starNum))); <span class="comment">// [1, 2, 6, 24, 120]</span></span><br></pre></td></tr></table></figure>
+<p>看到结果有些懵：所谓「计算 n 星卡成本」，只不过是算个阶乘 $n!$。没发现什么有意思的问题，也没想出什么值得夸耀的答案。幻想和现实存在巨大落差，自我满足感来得快散得快。这基本也是今年一年的写照了，无论工作、学习还是情感方面。</p>
+<p>每天都处于一种递归当中，365 次调用栈总结起来，也就是一年的成果。大概一生也不过几十年的递归而已。能不能迭代活着呢，将每日的收获传给下一日，每年的感悟递向新一年，这或许是种更积极更面向未来的生活方式吧（笑</p>
+<p>这不是一篇活动记录，游戏攻略或测评，技术分享，更谈不上年终总结，反倒是今年第一篇正式意义上的 blog，总之</p>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2><p>至地球 2018 倒数第一日以及 2019:</p>
+<blockquote>
+<p>Break though the door.<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="《Gotta knock a little harder》-山根麻以/菅野洋子 (如果你没听过，强烈推荐你听一遍；该曲来自于动画《Cowboy Bebop》，如果你没看过，也强烈推荐你看一遍）
+">[1]</span></a></sup></p>
+</blockquote>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">《Gotta knock a little harder》-山根麻以/菅野洋子 (如果你没听过，强烈推荐你听一遍；该曲来自于动画《Cowboy Bebop》，如果你没看过，也强烈推荐你看一遍）<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://zh.wikipedia.org/wiki/%E4%B8%9C%E6%96%B9%E6%A2%A6%E7%AC%A6%E7%A5%AD" target="_blank" rel="noopener">《东方梦符祭》</a>- dota2 中的一款自定义地图<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://mitpress.mit.edu/sites/default/files/sicp/index.html" target="_blank" rel="noopener"><em>Structure and Interpretation of Computer Programs</em></a><a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div></div></article></div></main><footer><div class="paginator"><a href="/2018/05/09/Router-Route/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2018 <a href="http://bayeszou.com">Bayes Zou</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-96122460-1",'auto');ga('send','pageview');</script></body></html>
