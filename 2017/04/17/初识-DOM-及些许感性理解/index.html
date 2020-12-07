@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>初识 DOM 及些许感性理解 · Maybe a Week</title><meta name="description" content="初识 DOM 及些许感性理解 - 1-WEEK"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,700"><link rel="search" type="application/opensearchdescription+xml" href="http://bayeszou.com/atom.xml" title="Maybe a Week"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://weibo.com/u/2848394551" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://twitter.com/bayeszou" target="_blank" class="nav-list-link">TWITTER</a></li><li class="nav-list-item"><a href="https://github.com/bayeszou" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">初识 DOM 及些许感性理解</h1><div class="post-info">Apr 17, 2017</div><div class="post-content"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>学完 JavaScript，还在疑惑其作用的时候，DOM 蹦了出来。有些不知所云，几番查阅只有，意识到自己有着不少误解，将新的理解总结出来，以供之后再来审视。</p>
+<h2 id="DOM-vs-HTML"><a href="#DOM-vs-HTML" class="headerlink" title="DOM vs HTML"></a>DOM vs HTML</h2><p>DOM 是什么，在哪能看到 DOM 吗？使用浏览器阅读网页的时候，按 <kbd>f12</kbd> 打开开发者工具，你会看到这样的画面</p>
+<p><img src="http://on9uavm7d.bkt.clouddn.com/2017-04-17-14924361569234.jpg" alt=""></p>
+<p>标注的部分，就是常常听说的 DOM 了。</p>
+<p>看上去，这个我们写的 HTML 似乎一样呀。</p>
+<p><img src="http://on9uavm7d.bkt.clouddn.com/2017-04-17-14924358992550.jpg" alt=""></p>
+<p>如果再研究研究，就能发现，两者还是有些区别的。下面是对 DOM 进行了操作的结果。</p>
+<p><img src="http://on9uavm7d.bkt.clouddn.com/2017-04-17-14924358708050.jpg" alt=""></p>
+<h2 id="DOM-vs-JS"><a href="#DOM-vs-JS" class="headerlink" title="DOM vs JS"></a>DOM vs JS</h2><ul>
+<li>1993 年，HTML 发布</li>
+<li>1996 年，JavaScript 发布</li>
+<li>1996 年，CSS 发布</li>
+<li>1998 年，XML 发布</li>
+</ul>
+<p>时间先暂停在 1998 年以前，现在人们有了 HTML 表达文档的内容，CSS 描述文档的样式，也有了 JavaScript，但当时并没有 DOM 标准。这意味着，例如 <code>.addEventListener</code> 之类的方法无法使用。也就是说，怎么「操作」文档，这不是 JavaScript<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="全文提及的 JavaScript 都指的是语言本身，而非局限于网页或其他宿主环境">[1]</span></a></sup> 的范畴！</p>
+<p>换言之，之前认为 <code>.addEventListener</code> 是 JavaScript 的东西，实则 DOM 定义的 API。</p>
+<p>回到 1998 年前，当时怎么使用 JS 操作文档，是没有统一的规范的——一切取决于浏览器，各家厂商都有自己的定义方式——非标准性质的 DOM 出现。然后 IE4 和 Netscape Navigator 4 又各自退出了自己的 DOM 扩展，增强 JavaScript 的功能，也称为 Dynamic HTML（简称 DHTML）。这段时期的 “DOM”，习惯上也成为 DOM Level 0, 是历史中的一个参考点，而非正式的标准规范。</p>
+<h2 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h2><h3 id="DOM-Level-1"><a href="#DOM-Level-1" class="headerlink" title="DOM Level 1"></a>DOM Level 1</h3><ul>
+<li>1998 年，DOM Level 1 发布</li>
+</ul>
+<p>W3C 正式发布了 DOM，名为 DOM Level 1，主要为了映射文档结构，由两块组成：</p>
+<ul>
+<li>Core：映射以 XML 为基础的文档结构</li>
+<li>HTML：基于 Core 进行了扩展，添加针对 HTML 的对象和方法</li>
+</ul>
+<h3 id="DOM-Level-2"><a href="#DOM-Level-2" class="headerlink" title="DOM Level 2"></a>DOM Level 2</h3><ul>
+<li>2000~2003 年，DOM Level 2 发布</li>
+</ul>
+<p>2 级 DOM 对之前的 Core 进行了拓展，支持了 XML 的命名空间，而且引入了更多的模块：</p>
+<ul>
+<li>Views：描述跟踪一个文档的各种视图（使用 CSS 样式设计文档前后）的接口</li>
+<li>Event：描述事件接口</li>
+<li>Style：描述处理基于 CSS 样式的接口</li>
+<li>Traversal and Range：描述遍历和操作文档树的接口</li>
+</ul>
+<h3 id="DOM-Level-3"><a href="#DOM-Level-3" class="headerlink" title="DOM Level 3"></a>DOM Level 3</h3><ul>
+<li>2003~2004 年，DOM Level 3 发布</li>
+</ul>
+<p>此时，新引入了两者模块:</p>
+<ul>
+<li>Load and Save：统一方式加载和保存文档的方法</li>
+<li>Validation：描述了验证文档的方法</li>
+</ul>
+<p>对 Core 再次进行了拓展，支持 XML 1.0 规范，涉及 XML Infoset、XPath 和 XML Base。</p>
+<h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><p>截止 2017-04-17，DOM Level 4 还在草稿阶段。现在再来看看 MDN 上关于 DOM 的描述：</p>
+<blockquote>
+<p>文档对象模型 (DOM) 是 HTML 和 XML 文档的编程接口。它提供了对文档的结构化的表述，并定义了一种方式可以使从程序中对该结构进行访问，从而改变文档的结构，样式和内容。DOM 将文档解析为一个由节点和对象（包含属性和方法的对象）组成的结构集合。简言之，它会将 web 页面和脚本或程序语言连接起来。</p>
+</blockquote>
+<p>所以</p>
+<ul>
+<li>只有 JavaScript 才能操作 DOM 吗？W3C 的标准里没有规定，任何语言都可以。</li>
+<li>有 JavaScript 就一定有 DOM 吗？并不是，可以在浏览器和 Node.js 中分别执行 <code>console.log(document)</code> 试试。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>同时推荐点击链接，可以更深入了解 DOM</p>
+<ul>
+<li>W3C: <a href="http://www.w3.org/TR/DOM-Level-2-Core/introduction.html" target="_blank" rel="noopener">What is the Document Object Model?</a> &amp; <a href="https://www.w3.org/DOM/DOMTR" target="_blank" rel="noopener">Document Object Model (DOM) Technical Reports</a></li>
+<li>MDN: <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction" target="_blank" rel="noopener">DOM 概述</a></li>
+<li><a href="https://github.com/jawil/blog/issues/9" target="_blank" rel="noopener">深入浅出 DOM 基础——《DOM 探索之基础详解篇》学习笔记</a></li>
+<li><a href="https://css-tricks.com/dom/" target="_blank" rel="noopener">What is the DOM?</a></li>
+</ul>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">全文提及的 JavaScript 都指的是语言本身，而非局限于网页或其他宿主环境<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div></div></article></div></main><footer><div class="paginator"><a href="/2017/04/21/event-delegation/" class="prev">上一篇</a><a href="/2017/03/23/利用 CSS 居中对齐/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2020 <a href="http://bayeszou.com">1-WEEK</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-96122460-1",'auto');ga('send','pageview');</script></body></html>
