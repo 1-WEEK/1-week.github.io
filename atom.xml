@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://bayeszou.com/"/>
-  <updated>2022-07-23T08:16:14.363Z</updated>
+  <updated>2022-08-21T14:17:26.691Z</updated>
   <id>http://bayeszou.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《编写可读代码的艺术》笔记</title>
+    <link href="http://bayeszou.com/2022/08/21/%E3%80%8A%E7%BC%96%E5%86%99%E5%8F%AF%E8%AF%BB%E4%BB%A3%E7%A0%81%E7%9A%84%E8%89%BA%E6%9C%AF%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
+    <id>http://bayeszou.com/2022/08/21/《编写可读代码的艺术》笔记/</id>
+    <published>2022-08-21T14:16:50.000Z</published>
+    <updated>2022-08-21T14:17:26.691Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Ch-1-代码应当易于理解"><a href="#Ch-1-代码应当易于理解" class="headerlink" title="Ch.1 代码应当易于理解"></a>Ch.1 代码应当易于理解</h2><aside><br>💡 可读性基本定理<br>代码的写法应当使别人理解它所需要的时间最小化<br><br></aside><ul><li>并不是单纯越短越好</li><li>可读性与其他指标并不冲突<br>代码容易理解，可以将其引向好的架构</li><li>经常思考代码是否易于他人理解，<strong>最难的部分</strong></li></ul><h1 id="Part-1-表面层次的改进"><a href="#Part-1-表面层次的改进" class="headerlink" title="Part.1 表面层次的改进"></a>Part.1 表面层次的改进</h1><h2 id="Ch-2-名字传递信息"><a href="#Ch-2-名字传递信息" class="headerlink" title="Ch.2 名字传递信息"></a>Ch.2 名字传递信息</h2><ul><li>选择专业的词</li><li>避免泛泛的词</li><li>具体代替抽象</li><li>使用前/后缀带上附加信息</li><li>决定名字的长度<ul><li>作用域大，名字更长比较好</li></ul></li><li>格式传递信息</li></ul><h2 id="Ch-3-命名"><a href="#Ch-3-命名" class="headerlink" title="Ch.3 命名"></a>Ch.3 命名</h2><ul><li>范围选区<ul><li>上下极限： <code>max</code>/ <code>min</code></li><li>包含范围： <code>first</code>/ <code>last</code></li><li>含首排尾： <code>begin</code>/ <code>end</code></li></ul></li></ul><h2 id="Ch-4-审美"><a href="#Ch-4-审美" class="headerlink" title="Ch.4 审美"></a>Ch.4 审美</h2><ul><li>用方法来整理不规则的东西<br>如 React 中的 <code>warning</code> , <code>invariant</code> 方法</li><li>把声明按块组织起来，把代码分成「段落」</li><li>选择一个有意义的顺序，并且始终保持</li></ul><h2 id="Ch-5-该写什么样的注释"><a href="#Ch-5-该写什么样的注释" class="headerlink" title="Ch.5 该写什么样的注释"></a>Ch.5 该写什么样的注释</h2><ul><li>不需要<ul><li>不要为了注释而注释</li><li>不要给坏的名字加注释<br>好代码&gt;坏代码+好注释</li></ul></li><li>需要<ul><li>加入「导演评论」</li><li>为代码瑕疵写注释<ul><li><code>TODO</code> 未处理的事情</li><li><code>FIXME</code> 已经有问题的代码</li><li>…</li></ul></li><li>给常量加注释</li></ul></li><li>克服「作者心理阻滞」<ol><li>不管心理想什么，先写下来</li><li>读一下这段注释，看看可否改进</li><li>重复 step2</li></ol></li></ul><h2 id="Ch-6-写出言简意赅的注释"><a href="#Ch-6-写出言简意赅的注释" class="headerlink" title="Ch.6 写出言简意赅的注释"></a>Ch.6 写出言简意赅的注释</h2><ul><li>尽量避免使用代词</li><li>声明代码的高层次意图</li><li>嵌入的注释解释参数<br>（这点使用默认值，和类型信息可以补充？</li><li>用含义丰富的词？</li></ul><h1 id="Part-2-简化循环和逻辑"><a href="#Part-2-简化循环和逻辑" class="headerlink" title="Part.2 简化循环和逻辑"></a>Part.2 简化循环和逻辑</h1><h2 id="Ch-7-简化控制流"><a href="#Ch-7-简化控制流" class="headerlink" title="Ch.7 简化控制流"></a>Ch.7 简化控制流</h2><aside><br>💡 把条件、循环以及其他对控制流的改变做的越「自然」越好。运用一种方式使读者不用停下来重读你的代码<br><br></aside><ul><li>条件参数顺序</li><li><code>if/else</code> 语句块顺序</li><li><code>do/while</code> 循环未必是好</li><li>提前的 <code>return</code></li><li>最小化嵌套<ul><li>提早返回减少嵌套</li><li>减少循环内的嵌套</li></ul></li></ul><h2 id="Ch-8-拆分超长表达式"><a href="#Ch-8-拆分超长表达式" class="headerlink" title="Ch.8 拆分超长表达式"></a>Ch.8 拆分超长表达式</h2><ul><li>解释变量<ol><li>拆分长的表达式</li><li>通过简单的名字描述子表达式，让代码文档化</li><li>帮助阅读时，理解代码中的<strong>主要概念</strong></li></ol></li><li><p>德摩根定理操作逻辑表达式</p><p>  $$<br>  \mathtt{not}\ (a\ \mathtt{or}\ b\ \mathtt{or}\ c)\Leftrightarrow(\mathtt{not}\ a)\ \mathtt{and}\ (\mathtt{not}\ b)\ \mathtt{and}\ (\mathtt{not}\ c)\<br>  \mathtt{not} (a\ \mathtt{and}\ b\ \mathtt{and}\ c)\Leftrightarrow(\mathtt{not}\ a)\ \mathtt{or}\ (\mathtt{not}\ b)\ \mathtt{or}\ (\mathtt{not}\ c)<br>  $$</p></li><li><p>慎用短路逻辑</p></li></ul><h2 id="Ch-9-变量和可读性"><a href="#Ch-9-变量和可读性" class="headerlink" title="Ch.9 变量和可读性"></a>Ch.9 变量和可读性</h2><ul><li>减少变量<br>变量越多，越难全部跟踪它们的动向<ul><li>移除无法价值 temp</li><li>减少控制流变量</li><li>减少中间结果</li></ul></li><li><p>缩小作用域</p><p>  变量作用于越大，需要跟踪它的动向越久</p><ul><li>用局部作用域，降格<ul><li>静态方法</li><li>拆类</li></ul></li><li>定义下移</li></ul></li><li>尽量使用常量<br>变量改变越频繁，越难跟踪它的当前值</li></ul><h1 id="Part-3-重新组织代码"><a href="#Part-3-重新组织代码" class="headerlink" title="Part.3 重新组织代码"></a>Part.3 重新组织代码</h1><h2 id="Ch-10-抽取不相关的子问题"><a href="#Ch-10-抽取不相关的子问题" class="headerlink" title="Ch.10 抽取不相关的子问题"></a>Ch.10 抽取不相关的子问题</h2><aside><br>💡 自顶向下或者自底向上编程结合，重要的是移除并解决单独子问题<br><br></aside><ul><li><p>简单说就是抽象</p><blockquote><p>所谓<strong>工程学</strong>就是关于把大问题拆分成小问题再把这些问题的解决方案放回一起</p></blockquote></li><li><p>警惕过犹不及，会造成读代码时的不连贯性</p></li></ul><h2 id="Ch-11-专注一件事"><a href="#Ch-11-专注一件事" class="headerlink" title="Ch.11 专注一件事"></a>Ch.11 专注一件事</h2><p>强调读写代码时的连贯性</p><h2 id="Ch-12-Thinking-to-Coding"><a href="#Ch-12-Thinking-to-Coding" class="headerlink" title="Ch.12 Thinking to Coding"></a>Ch.12 Thinking to Coding</h2><p>用自然语言描述，然后转化成代码</p><h2 id="Ch-13-Less-Code"><a href="#Ch-13-Less-Code" class="headerlink" title="Ch.13 Less Code"></a>Ch.13 Less Code</h2><aside><br>💡 最好读的代码就是没有代码<br><br></aside><ul><li>质疑和产分你的需求</li><li><p>保持小代码库</p><blockquote><p>一旦代码写好后，程序员往往不情愿删除它，因为它代表很多实际的工作量。删掉它可能以为这承认在上面所花的时间就是浪费。不要这么想！这是一个有创造性的邻域——摄影家、作者和电影制作人也不会保留他们所有的工作。</p></blockquote></li><li><p>保持对标准库及其 API 的熟悉</p></li></ul><h1 id="Part-4-精选话题"><a href="#Part-4-精选话题" class="headerlink" title="Part.4 精选话题"></a>Part.4 精选话题</h1><h2 id="Ch-14-测试和可读性"><a href="#Ch-14-测试和可读性" class="headerlink" title="Ch.14 测试和可读性"></a>Ch.14 测试和可读性</h2><aside><br>💡 测试应当具有可读性，以便其他程序员可以舒服地改变或者增加测试<br><br></aside><aside><br>💡 选择一组最简单的输入，它能完整地使用被测试代码<br><br></aside><ul><li>让测试更可读<br>对使用者隐去不重要的细节，以便突出更重要的细节；同时，写测试的代码越少，越会倾向于添加测试<ul><li>创建最小的测试声明</li><li>实现定制的「微语言」</li></ul></li><li>让错误消息更可读</li><li>选择好的测试输入<ul><li>简化输入值</li><li>多组小测试&gt;单组大测试</li></ul></li><li>为测试函数命名<br><strong>别怕长</strong>，反正不常用</li><li>别走太远<ul><li>牺牲真实代码的可读性，仅为了使其能被测试</li><li>着迷于 100% 覆盖率</li><li>让测试成为产品开发的阻碍</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h2 id=&quot;Ch-1-代码应当易于理解&quot;&gt;&lt;a href=&quot;#Ch-1-代码应
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>《东方梦符祭》有感</title>
